@@ -31,5 +31,5 @@ services:
     # please note that last definitions always *replace* previous ones
     App\Twig\ViteAssetExtension:
         arguments:
-            $isDev: '%env(APP_ENV)%'
+            $isDev: '%env(VITE_DEV)%'
             $cache: '@vite_cache_pool'

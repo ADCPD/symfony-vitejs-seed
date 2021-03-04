@@ -32,6 +32,7 @@ class ViteAssetExtension extends AbstractExtension
         CacheItemPoolInterface $cache
     )
     {
+        $this->isDev = $isDev;
         $this->manifest = \dirname(__DIR__). '/../public/assets/manifest.json';
         $this->cache = $cache;
     }
@@ -67,7 +68,6 @@ class ViteAssetExtension extends AbstractExtension
         $html = <<<HTML
 <script type="module" src="http://localhost:3000/assets/@vite/client"></script>
 HTML;
-
         if (in_array('react', $deps)) {
             $html .= '<script type="module">
                     import RefreshRuntime from "http://localhost:3000/assets/@react-refresh"
@@ -77,11 +77,9 @@ HTML;
                     window.__vite_plugin_react_preamble_installed__ = true
                 </script>';
         }
-
         $html .= <<<HTML
- <script type="module" src="http://localhost:3000/assets/{$entry}" defer></script>
+<script type="module" src="http://localhost:3000/assets/{$entry}" defer></script>
 HTML;
-
         return $html;
     }
 

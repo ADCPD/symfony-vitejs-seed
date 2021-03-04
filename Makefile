@@ -8,6 +8,9 @@ EXEC_PHP = php
 bazar-start: ## start docker project
 	sudo $(DOCKER) up -d
 
+bazar-stop: ## start docker project
+	sudo $(DOCKER) stop
+
 bazar-shell: ## start docker php container
 	sudo $(DOCKER) exec $(EXEC_PHP) bash
 
