@@ -17,6 +17,8 @@ class ViteController extends AbstractController
      */
     public function index(): Response
     {
+        //$manifestDir = \dirname(__DIR__). '/../public/assets/manifest.json';
+        //dump(json_decode(file_get_contents($manifestDir,true)));
         return $this->render('vite/index.html.twig', [
             'controller_name' => 'ViteController',
         ]);
